@@ -1,0 +1,81 @@
+server:
+  port: 10000
+  servlet:
+    session:
+      tracking-modes: COOKIE
+      cookie:
+        http-only: true
+        secure: false
+        same-site: lax
+      timeout: 10m
+
+spring:
+  security:
+    user:
+      name: user
+      password: 1234
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${EC2_DATABASE_HOST}:5432/app?serverTimezone=Asia/Seoul
+    username: crewstation
+    password: 1234
+  session:
+    redis:
+      repository-type: indexed
+      flush-mode: immediate
+  data:
+    redis:
+      host: ${EC2_DATABASE_HOST}
+      port: 6379
+  cache:
+    type: redis
+  profiles:
+    active: local
+    include: oauth
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 5MB
+      max-file-size: 5MB
+      max-request-size: 15MB
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: gtaemin254@gmail.com
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-handlers-package: com.example.crewstation.config.mybatis.handler
+  type-aliases-package: com.example.crewstation.domain;com.example.crewstation.dto;
+
+# openssl rand -base64 32
+jwt:
+  secret: ${JWT_SECRET}
+aws:
+  access-key: ${AWS_ACCESS_KEY_ID}
+  secret-key: ${AWS_SECRET_ACCESS_KEY}
+  s3:
+    bucket-name: ${AWS_S3_BUCKET}
+  region: ${AWS_REGION}
+
+
+# sms api key
+sms:
+  api:
+    access: ${SMS_ACCESS_KEY}
+    secret: ${SMS_SECRET_ACCESS_KEY}
+
+
+logging:
+  level:
+    org.apache.ibatis.session.Configuration: DEBUG
