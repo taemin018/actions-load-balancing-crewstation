@@ -98,8 +98,6 @@ ls -l /etc/nginx/sites-enabled/
 # 설정한 파일에 문제 있는지 체크
 sudo nginx -t
 ```
-### 5. 결과
-![](https://velog.velcdn.com/images/alzkdpf000/post/2bc26a19-32bc-40c3-be4c-97f3b1b46cf9/image.png)
 
 
 ## ⚖️ 로드 밸런싱 알고리즘 비교
