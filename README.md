@@ -84,6 +84,31 @@ server {
 }
 ```
 
+### 4. 적용 및 검증
+```bash
+# 기존 링크 삭제하기
+sudo rm /etc/nginx/sites-enabled/default
 
+# 만든 파일 링크 걸어주기
+sudo ln -s /etc/nginx/sites-available/[이름] /etc/nginx/sites-enabled/
+
+# 확인하기
+ls -l /etc/nginx/sites-enabled/
+
+# 설정한 파일에 문제 있는지 체크
+sudo nginx -t
+```
+### 5. 결과
+![](https://velog.velcdn.com/images/alzkdpf000/post/2bc26a19-32bc-40c3-be4c-97f3b1b46cf9/image.png)
+
+
+## ⚖️ 로드 밸런싱 알고리즘 비교
+| 알고리즘                  | 설명                 | 추천 사용 사례                |
+| --------------------- | ------------------ | ----------------------- |
+| **Round Robin(Default)**       | 순차 분배              | 서버 스펙이 모두 동일할 때         |
+| **Weighted RR**       | 가중치 기반 분배          | 서버 성능이 다를 때             |
+| **Least Connections** | 연결 수가 가장 적은 서버에 분배 | API 요청 길이가 긴 서비스        |
+| **IP Hash**           | 동일 사용자 요청 → 동일 서버  | 세션 공유 어려울 때 (Redis 미사용) |
+| **Hash**              | 쿠키/헤더 기반 라우팅       | A/B 테스트, 특정 사용자 고정 라우팅  |
 
 
