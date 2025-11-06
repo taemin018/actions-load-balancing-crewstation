@@ -55,7 +55,7 @@
 # 설치 명령어
  sudo apt install -y nginx
 
- # 상태 확인
+# 상태 확인
  sudo systemctl status nginx
  
 
