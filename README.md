@@ -109,4 +109,25 @@ sudo nginx -t
 | **IP Hash**           | 동일 사용자 요청 → 동일 서버  | 세션 공유 어려울 때 (Redis 미사용) |
 | **Hash**              | 쿠키/헤더 기반 라우팅       | A/B 테스트, 특정 사용자 고정 라우팅  |
 
+---
+
+## 🧩 Troubleshooting
+
+<img width="1179" height="117" alt="스크린샷 2025-11-06 오후 1 56 06" src="https://github.com/user-attachments/assets/e5c9bd90-875a-471a-92fd-2c706c618bfa" />
+
+- 도메인을 등록을 한 뒤 EC2의 인스턴스를 시작을 하고 EC2의 IP주소를 변경하고 도메인으로 서버 요청을 시도 했는데 위와 같은 오류가 나며 페이지가 열리지 않았다.
+
+⚒️ 해결방안
+
+<img width="599" height="329" alt="스크린샷 2025-11-06 오후 4 35 44" src="https://github.com/user-attachments/assets/280b5094-81d6-4be9-b586-dc0a47045a57" />
+
+- NGINX의 설정파일에 IP주소가 EC2 인스턴스 종료 후 다시 시작을 했을 때 변경된 IP주소를 다시 설정을 하니 오류가 해결되었다.
+
+
+
+
+
+
+
+
 
