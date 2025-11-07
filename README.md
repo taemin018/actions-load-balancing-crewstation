@@ -10,6 +10,9 @@
 
 ## 🎈 로드밸런싱 자동 배포 인프라 구축 
 
+<img width="1920" height="1080" alt="509992114-de134f76-03f3-47a4-aaeb-e4994bf87710" src="https://github.com/user-attachments/assets/80e1306a-7b22-4403-968b-51ac62cd3ddb" />
+
+
 ---
 
 ## 🔧 GitHub Actions 설정
