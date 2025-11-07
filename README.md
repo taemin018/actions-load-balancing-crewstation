@@ -30,7 +30,7 @@
 |AWS_REGION|  aws 지역명 |
 |AWS_S3_BUCKET|  aws s3 버킷 이름 |
 |AWS_SECRET_ACCESS_KEY| IAM 시크릿 키 |
-|MAIL_PASSWORD| Gmail 비밀번호 |
+|MAIL_PASSWORD| Gmail 2차 비밀번호 |
 |JWT_SECRET| openssl rand -base64 32의 결과 값 |
 |KAKAO_CLIENT_ID| 카카오 rest api 키 |
 |KAKAO_CLIENT_SECRET| 카카오 secret 키 |
