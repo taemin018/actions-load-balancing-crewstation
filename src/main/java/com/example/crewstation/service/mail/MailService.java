@@ -18,7 +18,7 @@ public class MailService {
         String code = createCode();
 
         String receiver = mail;
-        String sender = "ccocco55@gmail.com";
+        String sender = "gtaemin254@gmail.com";
         String title = "인증";
 
         StringBuilder body = new StringBuilder();
