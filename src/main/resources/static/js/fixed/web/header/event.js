@@ -191,8 +191,11 @@ items.forEach((item) => {
         }
         btnCheck = false;
 
-        await showList(page, keyword, orderType, category, prevCategory !== item.id);
-        prevCategory = category;
+        if (window.keyword != null) {
+            await showList(page, keyword, orderType, category, prevCategory !== item.id);
+            prevCategory = category;
+        }
+
 
         items.forEach((e) => e.classList.remove("active"));
         item.classList.add("active");
