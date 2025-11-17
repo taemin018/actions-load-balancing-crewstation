@@ -7,6 +7,7 @@ import com.example.crewstation.dto.member.MemberDTO;
 import com.example.crewstation.dto.purchase.PurchaseDTO;
 import com.example.crewstation.dto.purchase.PurchaseDetailDTO;
 import com.example.crewstation.dto.purchase.PurchaseListCriteriaDTO;
+import com.example.crewstation.repository.ai.KeywordDAO;
 import com.example.crewstation.service.purchase.PurchaseService;
 import com.example.crewstation.util.ScrollCriteria;
 import com.example.crewstation.util.Search;
@@ -41,6 +42,7 @@ public class PurchaseController {
     private final JwtTokenProvider jwtTokenProvider;
     private final AuthenticationManager authenticationManager;
     private final PurchaseListCriteriaDTO purchaseListCriteriaDTO;
+    private final KeywordDAO keywordDAO;
 
     @GetMapping
     public String list() {
@@ -54,6 +56,10 @@ public class PurchaseController {
         log.info("purchase {}:::::::::::", purchase);
         model.addAttribute("purchase", purchase);
         model.addAttribute("writer", customUserDetails != null && customUserDetails.getId().equals(purchase.getMemberId()));
+
+        if (customUserDetails != null) {
+            keywordDAO.saveLog(customUserDetails.getId(), postId);
+        }
         return "gift-shop/detail";
     }
 

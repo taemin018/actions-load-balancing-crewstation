@@ -3,6 +3,7 @@ package com.example.crewstation.controller.diary;
 import com.example.crewstation.auth.CustomUserDetails;
 import com.example.crewstation.dto.diary.DiaryDetailDTO;
 import com.example.crewstation.dto.file.tag.PostDiaryDetailTagDTO;
+import com.example.crewstation.repository.ai.KeywordDAO;
 import com.example.crewstation.service.diary.DiaryService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,6 +19,7 @@ import org.springframework.web.servlet.view.RedirectView;
 @RequiredArgsConstructor
 public class DiaryController {
     private final DiaryService diaryService;
+    private final KeywordDAO keywordDAO;
 
     @GetMapping
     public String list(){
@@ -46,6 +48,9 @@ public class DiaryController {
         DiaryDetailDTO diary = diaryService.getDiary(postId, customUserDetails);
         model.addAttribute("diary",diary);
 
+        if (customUserDetails != null) {
+            keywordDAO.saveLog(customUserDetails.getId(), postId);
+        }
         return "diary/detail";
     }
 
