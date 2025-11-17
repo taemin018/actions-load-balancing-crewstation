@@ -6,6 +6,8 @@ import com.example.crewstation.dto.crew.CrewCriteriaDTO;
 import com.example.crewstation.dto.crew.CrewDTO;
 import com.example.crewstation.dto.diary.DiaryCriteriaDTO;
 import com.example.crewstation.dto.gift.GiftCriteriaDTO;
+import com.example.crewstation.mapper.ai.KeywordMapper;
+import com.example.crewstation.repository.ai.KeywordDAO;
 import com.example.crewstation.service.accompany.AccompanyService;
 import com.example.crewstation.service.crew.CrewService;
 import com.example.crewstation.service.diary.DiaryService;
@@ -30,6 +32,7 @@ public class SearchController {
     private final DiaryService diaryService;
     private final GiftService giftService;
     private final AccompanyService accompanyService;
+    private final KeywordDAO keywordDAO;
 
     @GetMapping("/total")
     public String getSearch(Search search,
@@ -37,6 +40,12 @@ public class SearchController {
                             Model model) {
 
         log.info("통합 검색 요청 - keyword: {}", search.getKeyword());
+
+        if (customUserDetails != null) {
+            keywordDAO.saveKeyword(customUserDetails.getId(), search.getKeyword());
+        }
+
+
 
 //        CrewCriteriaDTO crews = crewService.getSearchCrews(search);
         DiaryCriteriaDTO diaries = diaryService.countDiaryImg(search,customUserDetails);

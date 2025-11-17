@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.crewstation.mapper.ai.KeywordMapper">
+    <insert id="insertKeyword">
+        insert into tbl_ai_keyword(member_id, search_word)
+        values(#{memberId} ,#{searchWord})
+    </insert>
+
+    <insert id="insertLog">
+        insert into tbl_ai_log(member_id, post_id)
+        values (#{memberId}, #{postId})
+    </insert>
+
+</mapper>
