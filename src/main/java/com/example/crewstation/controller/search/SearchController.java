@@ -41,9 +41,10 @@ public class SearchController {
 
         log.info("통합 검색 요청 - keyword: {}", search.getKeyword());
 
-        if (customUserDetails != null) {
+        if (customUserDetails != null && search.getKeyword() != null) {
             keywordDAO.saveKeyword(customUserDetails.getId(), search.getKeyword());
         }
+
 
 
 
