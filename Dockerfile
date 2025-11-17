@@ -67,4 +67,4 @@ COPY --from=build /crew-station/build/libs/crew-station-0.0.1-SNAPSHOT.jar crew-
 EXPOSE 10000
 
 # 실행 명령
-ENTRYPOINT ["java", "-jar", "crew-station.jar"]
+ENTRYPOINT ["java", "-jar", "crew-station.jar", "--spring.profiles.active=prod"]
