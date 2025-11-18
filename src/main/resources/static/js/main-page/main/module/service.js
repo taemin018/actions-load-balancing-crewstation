@@ -25,6 +25,7 @@ const recommendService = (() => {
     const getUserRecommendData = async (callback) => {
         const response = await fetch(`/api/userdata`, {
             method: "GET"
+            headers: "application/json"
         });
 
         const data = await response.json();
