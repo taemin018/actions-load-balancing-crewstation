@@ -24,7 +24,7 @@
                 join tbl_post_section ps
                            on p.id = ps.post_id
                 join tbl_ai_keyword tak
-                           on tak.member_id = tal.member_id
+                           on tak.member_id = tal.member_id and p.created_datetime = now()
         where tal.member_id = #{memberId}
         order by tal.created_datetime desc
         limit 5
