@@ -1,8 +1,11 @@
 package com.example.crewstation.repository.ai;
 
+import com.example.crewstation.dto.ai.KeywordDTO;
 import com.example.crewstation.mapper.ai.KeywordMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
@@ -16,6 +19,10 @@ public class KeywordDAO {
 
     public void saveLog(Long memberId, Long postId) {
         keywordMapper.insertLog(memberId, postId);
+    }
+
+    public List<KeywordDTO> selectRecommend(Long memberId) {
+        return keywordMapper.selectKeyword(memberId);
     }
 
 }

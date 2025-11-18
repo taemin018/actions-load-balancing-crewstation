@@ -10,5 +10,10 @@ import lombok.ToString;
 public class KeywordDTO {
     private Long memberId;
     private String searchWord;
+    private String createdDatetime;
+    private String updatedDatetime;
+    private String keyword;
+    private String postContent;
+    private String postTitle;
 
 }

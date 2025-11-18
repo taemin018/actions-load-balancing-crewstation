@@ -241,4 +241,16 @@ likeBtns.forEach((likeBtn) => {
 });
 
 
+document.addEventListener("DOMContentLoaded", async () => {
+    try {
+        const data = await recommendService.getUserRecommendData();
 
+        if (data.length === 0) {
+            console.log("추천 데이터 없음");
+            return;
+        }
+
+    } catch (err) {
+        console.error(err);
+    }
+});
