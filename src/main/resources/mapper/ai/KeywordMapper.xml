@@ -18,15 +18,15 @@
             tal.member_id as memberId,
             tak.search_word as searchWord
 
-        from tbl_ai_log tal
-                join tbl_post p
-                           on tal.post_id = p.id
-                join tbl_post_section ps
-                           on p.id = ps.post_id
-                join tbl_ai_keyword tak
-                           on tak.member_id = tal.member_id and p.created_datetime = now()
+        from tbl_post p
+                 join tbl_post_section ps
+                      on p.id = ps.post_id
+                 join tbl_ai_log tal
+                      on p.member_id = tal.member_id and date(tal.created_datetime) = date(now())
+                 join tbl_ai_keyword tak
+                      on tak.member_id = tal.member_id and date(tak.created_datetime) = date(now())
         where tal.member_id = #{memberId}
-        order by tal.created_datetime desc
+
         limit 5
 
     </select>
