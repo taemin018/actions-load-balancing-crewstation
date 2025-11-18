@@ -22,21 +22,17 @@ const likeService = (() => {
 
 
 const recommendService = (() => {
-    const getUserRecommendData = async (callback) => {
+    const getUserRecommendData = async () => {
         const response = await fetch(`/api/userdata`, {
             method: "GET"
         });
 
-
         if (!response.ok) {
-            throw new Error("추천 게시글 불러오기 실패");
+            throw new Error("추천 데이터 불러오기 실패");
         }
 
         const data = await response.json();
-
-        if (callback) {
-            callback(data);
-        }
+        return data;
     };
 
     return { getUserRecommendData : getUserRecommendData};

@@ -20,11 +20,9 @@ public class MainRestController {
     private final KeywordService keywordService;
 
     @GetMapping("/userdata")
-    public ResponseEntity<?> getUserKeywordData(@AuthenticationPrincipal CustomUserDetails user) {
-
-        keywordService.recommendSelect(user.getId());
-
-        return ResponseEntity.ok().build();
+    public ResponseEntity<List<KeywordDTO>> getUserKeywordData(@AuthenticationPrincipal CustomUserDetails user) {
+        List<KeywordDTO> keywordDTO = keywordService.recommendSelect(user.getId());
+        return ResponseEntity.ok(keywordDTO);
     }
 
 
