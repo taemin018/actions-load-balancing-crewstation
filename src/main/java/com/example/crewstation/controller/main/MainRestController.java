@@ -20,7 +20,7 @@ public class MainRestController {
     private final KeywordService keywordService;
 
     @GetMapping("/userdata")
-    public ResponseEntity<String> getUserKeywordData(@AuthenticationPrincipal CustomUserDetails user) {
+    public ResponseEntity<?> getUserKeywordData(@AuthenticationPrincipal CustomUserDetails user) {
 
         keywordService.recommendSelect(user.getId());
 
