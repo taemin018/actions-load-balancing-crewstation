@@ -28,10 +28,6 @@ const recommendService = (() => {
             method: "GET"
         });
 
-        if (!response.ok) {
-            throw new Error("추천 데이터 로딩 실패");
-        }
-
         const data = await response.json();
 
         if (callback) {
