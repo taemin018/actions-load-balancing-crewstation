@@ -17,7 +17,6 @@
             ps.post_content as postContent,
             tal.member_id as memberId,
             tak.search_word as searchWord
-
         from tbl_post p
                  join tbl_post_section ps
                       on p.id = ps.post_id
@@ -26,8 +25,7 @@
                  join tbl_ai_keyword tak
                       on tak.member_id = tal.member_id and date(tak.created_datetime) = date(now())
         where tal.member_id = #{memberId}
-
+        order by tal.created_datetime desc
         limit 5
-
     </select>
 </mapper>
