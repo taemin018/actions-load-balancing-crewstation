@@ -24,7 +24,7 @@ const likeService = (() => {
 const recommendService = (() => {
 
     const getUserRecommendData = async (callback) => {
-        const response = await fetch("/userdata", {
+        const response = await fetch(`/userdata`, {
             method: "GET"
         });
 
