@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 @Slf4j
 @RequiredArgsConstructor
-@RequestMapping("/")
+@RequestMapping("/api")
 public class MainRestController {
 
     private final KeywordService keywordService;
