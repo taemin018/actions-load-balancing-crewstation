@@ -16,7 +16,7 @@
             p.post_title as postTitle,
             ps.post_content as postContent,
             tal.member_id as memberId,
-            tak.search_word as searchWord
+            tak.search_word as searchWord,
 
         from tbl_post p
                  join tbl_post_section ps
