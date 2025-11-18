@@ -12,7 +12,6 @@ public class KeywordDTO {
     private String searchWord;
     private String createdDatetime;
     private String updatedDatetime;
-    private String keyword;
     private String postContent;
     private String postTitle;
 
