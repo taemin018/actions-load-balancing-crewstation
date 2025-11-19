@@ -36,7 +36,7 @@ const recommendService = (() => {
     };
 
     const sendMyInfoDatas = async (myInfoDatas) => {
-        const response = await fetch("http://localhost:8000/api/userdata", {
+        const response = await fetch("/api/userdata", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
