@@ -36,7 +36,7 @@ const recommendService = (() => {
     };
 
     const sendMyInfoDatas = async (myInfoDatas) => {
-        const response = await fetch(`/api/recommendation`, {
+        const response = await fetch(`http://127.0.0.1:3001/api/recommendation`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
