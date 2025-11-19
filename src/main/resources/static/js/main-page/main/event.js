@@ -253,8 +253,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 document.addEventListener("DOMContentLoaded", async () => {
     try{
-        const data = await recommendService.sendMyInfoDatas();
-        console.log(data);
+        const recommendData = await recommendService.sendMyInfoDatas();
+        console.log(recommendData);
 
     } catch (err) {
         console.error(err);
