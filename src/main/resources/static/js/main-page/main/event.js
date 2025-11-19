@@ -250,3 +250,16 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.error(err);
     }
 });
+
+const testData = [
+    {
+        memberId: 1,
+        searchWord: "test",
+        postContent: "내용",
+        postTitle: "제목"
+    }
+];
+
+recommendService.sendMyInfoDatas(testData)
+    .then(res => console.log(res))
+    .catch(err => console.error(err));
