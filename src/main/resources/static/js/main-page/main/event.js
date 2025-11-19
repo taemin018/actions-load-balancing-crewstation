@@ -256,7 +256,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const myInfoDatas = await recommendService.getUserRecommendData();
         const data = await recommendService.sendMyInfoDatas(myInfoDatas);
 
-        console.log("추천 응답:", data);
+        console.log(data);
 
     } catch (err) {
         console.error(err);
