@@ -253,22 +253,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 document.addEventListener("DOMContentLoaded", async () => {
     try {
-        const testMyInfoDatas = [
-            {
-                memberId: 12,
-                searchWord: "테스트검색",
-                postContent: "내용 테스트",
-                postTitle: "제목 테스트"
-            }
-        ];
+        const myInfoDatas = await recommendService.getUserRecommendData();
+        const data = await recommendService.sendMyInfoDatas(myInfoDatas);
 
-        const data = await recommendService.sendMyInfoDatas(testMyInfoDatas);
-        console.log(data);
+        console.log("추천 응답:", data);
 
     } catch (err) {
         console.error(err);
     }
 });
+
 
 
 
