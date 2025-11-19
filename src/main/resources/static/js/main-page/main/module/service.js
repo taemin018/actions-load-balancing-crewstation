@@ -53,7 +53,7 @@ const recommendService = (() => {
     };
 
     const sendTotalDiary = async (totalDiaries) => {
-        const response = await fetch(`https://gateway-victor-head-medieval.trycloudflare.com/api/recommendation`, {
+        const response = await fetch(`https://gateway-victor-head-medieval.trycloudflare.com/api/recommendTotalDiaries`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
