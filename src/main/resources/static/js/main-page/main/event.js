@@ -253,7 +253,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 document.addEventListener("DOMContentLoaded", async () => {
     try {
-        const myInfoDatas = await recommendService.getUserRecommendData();
         const data = await recommendService.sendMyInfoDatas(myInfoDatas);
 
         console.log(data);
