@@ -244,29 +244,19 @@ likeBtns.forEach((likeBtn) => {
 document.addEventListener("DOMContentLoaded", async () => {
     try {
         const data = await recommendService.getUserRecommendData();
-        console.log(data);
+        console.log("userdata:", data);
+
+        const myInfoDatas = data;
+        const totalDiaries = data;
+
+        const result = await recommendService.sendMyInfoDatas(myInfoDatas, totalDiaries);
+        console.log(result);
 
     } catch (err) {
         console.error(err);
     }
 });
 
-document.addEventListener("DOMContentLoaded", async () => {
-    try {
-        const myInfoDatas = await recommendService.getUserRecommendData();
-        const data = await recommendService.sendMyInfoDatas(myInfoDatas);
-
-        console.log(data);
-
-        const totalDiaries = await recommendService.getUserRecommendData()
-        const diary = await recommendService.sendMyInfoDatas(totalDiaries);
-
-        console.log(diary);
-
-    } catch (err) {
-        console.error(err);
-    }
-});
 
 
 
