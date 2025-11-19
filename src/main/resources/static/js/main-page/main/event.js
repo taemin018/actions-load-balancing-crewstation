@@ -256,10 +256,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         const myInfoDatas = await recommendService.getUserRecommendData();
         const data = await recommendService.sendMyInfoDatas(myInfoDatas);
 
+        console.log(data);
+
         const totalDiaries = await recommendService.getUserRecommendData()
         const diary = await recommendService.sendMyInfoDatas(totalDiaries);
 
-        console.log(data);
         console.log(diary);
 
     } catch (err) {
