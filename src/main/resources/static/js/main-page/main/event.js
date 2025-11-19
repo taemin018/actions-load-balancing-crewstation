@@ -263,24 +263,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 });
 
-document.addEventListener("DOMContentLoaded", async () => {
-    try {
-        const myInfoDatas = await recommendService.getUserRecommendData();
-        const data = await recommendService.sendMyInfoDatas(myInfoDatas);
-
-        const list = document.querySelector("#recommendList");
-        list.innerHTML = ""; // 초기화
-
-        data.forEach(item => {
-            const li = document.createElement("li");
-            li.textContent = item.name || item.title || JSON.stringify(item);
-            list.appendChild(li);
-        });
-
-    } catch (err) {
-        console.error(err);
-    }
-});
 
 
 
