@@ -35,30 +35,13 @@ const recommendService = (() => {
         return data;
     };
 
-    const sendMyInfoDatas = async (myInfoDatas) => {
+    const sendMyInfoDatas = async (myInfoDatas, totalDiaries) => {
         const response = await fetch(`https://gateway-victor-head-medieval.trycloudflare.com/api/recommendation`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({myInfoDatas:myInfoDatas})
-        });
-
-        if (!response.ok) {
-            throw new Error("요청 실패");
-        }
-
-        const data = await response.json();
-        return data;
-    };
-
-    const sendTotalDiary = async (totalDiaries) => {
-        const response = await fetch(`https://gateway-victor-head-medieval.trycloudflare.com/api/recommendTotalDiaries`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({totalDiaries:totalDiaries})
+            body: JSON.stringify({myInfoDatas:myInfoDatas, totalDiaries:totalDiaries})
         });
 
         if (!response.ok) {
@@ -70,7 +53,7 @@ const recommendService = (() => {
     };
 
 
-    return { getUserRecommendData : getUserRecommendData, sendMyInfoDatas: sendMyInfoDatas, sendTotalDiary: sendTotalDiary};
+    return { getUserRecommendData : getUserRecommendData, sendMyInfoDatas: sendMyInfoDatas};
 
 })();
 
