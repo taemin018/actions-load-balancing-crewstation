@@ -35,7 +35,24 @@ const recommendService = (() => {
         return data;
     };
 
-    return { getUserRecommendData : getUserRecommendData};
+    const sendMyInfoDatas = async (myInfoDatas) => {
+        const response = await fetch("http://localhost:8000/api/userdata", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({myInfoDatas: myInfoDatas})
+        });
+
+        if (!response.ok) {
+            throw new Error("요청 실패");
+        }
+
+        const data = await response.json();
+        return data;
+    };
+
+    return { getUserRecommendData : getUserRecommendData, sendMyInfoDatas: sendMyInfoDatas};
 })();
 
 
