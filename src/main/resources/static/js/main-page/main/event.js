@@ -254,9 +254,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 document.addEventListener("DOMContentLoaded", async () => {
     try {
         const myInfoDatas = await recommendService.getUserRecommendData();
-        const data = await recommendService.sendMyInfoDatas(myInfoDatas, totalDiaries);
+        const data = await recommendService.sendMyInfoDatas(myInfoDatas);
+
+        const totalDiaries = await recommendService.getUserRecommendData();
+        const diary = await recommendService.sendMyInfoDatas(totalDiaries);
 
         console.log(data);
+        console.log(diary);
 
     } catch (err) {
         console.error(err);
