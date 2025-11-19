@@ -41,7 +41,7 @@ const recommendService = (() => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({myInfoDatas})
+            body: JSON.stringify(myInfoDatas)
         });
 
         if (!response.ok) {

@@ -46,8 +46,6 @@ public class SearchController {
         }
 
 
-
-
 //        CrewCriteriaDTO crews = crewService.getSearchCrews(search);
         DiaryCriteriaDTO diaries = diaryService.countDiaryImg(search,customUserDetails);
 //        AccompanyCriteriaDTO accompanies = accompanyService.getSearchAccompanies(search);
