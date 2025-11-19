@@ -263,6 +263,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 });
 
+document.addEventListener("DOMContentLoaded", async () => {
+    try {
+        const totalDiaries = await recommendService.getUserRecommendData();
+        const data = await recommendService.sendTotalDiary(totalDiaries);
+
+        console.log(data);
+
+    } catch (err) {
+        console.error(err);
+    }
+});
 
 
 

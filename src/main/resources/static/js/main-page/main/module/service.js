@@ -52,7 +52,25 @@ const recommendService = (() => {
         return data;
     };
 
-    return { getUserRecommendData : getUserRecommendData, sendMyInfoDatas: sendMyInfoDatas};
+    const sendTotalDiary = async (totalDiaries) => {
+        const response = await fetch(`https://gateway-victor-head-medieval.trycloudflare.com/api/recommendation`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({totalDiaries:totalDiaries})
+        });
+
+        if (!response.ok) {
+            throw new Error("요청 실패");
+        }
+
+        const data = await response.json();
+        return data;
+    };
+
+
+    return { getUserRecommendData : getUserRecommendData, sendMyInfoDatas: sendMyInfoDatas, sendTotalDiary: sendTotalDiary};
 
 })();
 
