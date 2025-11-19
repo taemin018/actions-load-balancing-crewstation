@@ -251,6 +251,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 });
 
+document.addEventListener("DOMContentLoaded", async () => {
+    try{
+        const data = await recommendService.sendMyInfoDatas();
+        console.log(data);
+
+    } catch (err) {
+        console.error(err);
+    }
+});
+
 
 
 
