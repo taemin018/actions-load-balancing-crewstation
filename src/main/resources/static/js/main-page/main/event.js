@@ -246,18 +246,15 @@ document.addEventListener("DOMContentLoaded", async () => {
         const data = await recommendService.getUserRecommendData();
         console.log("userdata:", data);
 
-        const diary = await recommendService.getDiary();
-        console.log("diary:" ,diary);
-
         const myInfoDatas = data;
         const totalDiaries = data;
 
-        const result = await recommendService.sendMyInfoDatas(myInfoDatas, totalDiaries);
 
-        showRecommendList(result);
+        const recommendedDiaries = await recommendService.sendMyInfoDatas(myInfoDatas, totalDiaries);
+        showRecommendList(recommendedDiaries);
 
         console.log("################")
-        console.log(result);
+        console.log(recommendedDiaries);
 
     } catch (err) {
         console.error(err);
@@ -268,14 +265,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 const showRecommendList = (diaryList) => {
     const recommendList = document.querySelector("#recommendPostList");
     console.log("recommendList");
-    recommendList.innerHTML = ""; // 초기화
+    recommendList.innerHTML = "";
 
-}
-showRecommendList(recommendService.diaryResponse())
-diaryList.forEach(diary => {
-    const diaryItem = document.createElement("div");
-    diaryItem.classList.add("card-feed-item-wrap");
-    diaryItem.innerHTML = `
+    diaryList.forEach(diary => {
+        const diaryItem = document.createElement("div");
+        diaryItem.classList.add("card-feed-item-wrap");
+        diaryItem.innerHTML = `
             <article class="card-collection-item">
                 <div class="card-writer">
                     <div class="card-item-writer-content">
@@ -306,8 +301,11 @@ diaryList.forEach(diary => {
                 </div>
             </article>
         `;
-    recommendList.appendChild(diaryItem);
-});
+        recommendList.appendChild(diaryItem);
+    });
+}
+
+
 
 
 
