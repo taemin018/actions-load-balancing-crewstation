@@ -53,14 +53,12 @@ const recommendService = (() => {
         }
         const idsJson = await idsResponse.json();
 
-        const diaryResponse = await fetch(`/api/recommendDiary`, {
+        const diaryResponse = await fetch(`http://crewstation.store/api/recommendDiary`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({
-                diaryIds: idsJson.diaryIds
-            })
+            body: JSON.stringify(idsJson.totalDiaries)
 
         });
         if (!diaryResponse.ok) {
