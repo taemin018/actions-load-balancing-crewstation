@@ -59,11 +59,12 @@ const recommendService = (() => {
                 "Content-Type": "application/json",
             },
             credentials: 'include',
-            body: JSON.stringify({ totalDiaries: idsJson.totalDiaries })
-
-
+            body: JSON.stringify(idsJson.totalDiaries)
 
         });
+
+        console.log("idsJson.totalDiaries:", idsJson.totalDiaries);
+
         if (!diaryResponse.ok) {
             throw new Error("요청 실패");
         }
