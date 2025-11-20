@@ -36,7 +36,7 @@ const recommendService = (() => {
     };
 
     const getDiary = async () => {
-        const response = await fetch(`/api/recommend`, {
+        const response = await fetch(`/api/recommendDiary`, {
             method: "GET"
         });
 
