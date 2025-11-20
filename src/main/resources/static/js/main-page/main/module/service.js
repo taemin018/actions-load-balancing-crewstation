@@ -61,7 +61,8 @@ const recommendService = (() => {
                 "Content-Type": "application/json",
             },
             credentials: 'include',
-            body: JSON.stringify({ diaryIds: idsJson.totalDiaries })
+            body: JSON.stringify(idsJson.totalDiaries)
+
 
         });
 
