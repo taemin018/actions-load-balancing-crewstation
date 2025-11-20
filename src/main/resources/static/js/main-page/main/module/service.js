@@ -55,7 +55,7 @@ const recommendService = (() => {
         const idsJson = await idsResponse.json();
         console.log("idsJson.totalDiaries:", idsJson.totalDiaries);
 
-        const diaryResponse = await fetch(`http://crewstation.store/api/recommendDiary`, {
+        const diaryResponse = await fetch(`/api/recommendDiary`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
