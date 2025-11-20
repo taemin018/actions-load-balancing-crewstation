@@ -51,7 +51,9 @@ const recommendService = (() => {
         if (!idsResponse.ok) {
             throw new Error("요청 실패");
         }
+
         const idsJson = await idsResponse.json();
+        console.log("idsJson.totalDiaries:", idsJson.totalDiaries);
 
         const diaryResponse = await fetch(`http://crewstation.store/api/recommendDiary`, {
             method: "POST",
@@ -63,13 +65,15 @@ const recommendService = (() => {
 
         });
 
-        console.log("idsJson.totalDiaries:", idsJson.totalDiaries);
-
         if (!diaryResponse.ok) {
             throw new Error("요청 실패");
         }
 
-        return await diaryResponse.json();
+        const diaryData = await diaryResponse.json();
+        console.log("diaryData:", diaryData);
+
+        return diaryData;
+
     };
 
 
