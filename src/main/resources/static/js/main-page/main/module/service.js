@@ -53,14 +53,12 @@ const recommendService = (() => {
         }
         const idsJson = await idsResponse.json();
 
-        console.log("idsJson.totalDiaries:", idsJson.totalDiaries);
-        console.log("배열인가?", Array.isArray(idsJson.totalDiaries));
-
         const diaryResponse = await fetch(`http://crewstation.store/api/recommendDiary`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
+            credentials: 'include',
             body: JSON.stringify(idsJson.totalDiaries)
 
 
