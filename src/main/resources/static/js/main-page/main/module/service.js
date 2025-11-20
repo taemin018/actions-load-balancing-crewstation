@@ -35,6 +35,19 @@ const recommendService = (() => {
         return data;
     };
 
+    const getDiary = async () => {
+        const response = await fetch(`/api/recommend`, {
+            method: "GET"
+        });
+
+        if (!response.ok) {
+            throw new Error("다이어리 불러오기 실패");
+        }
+
+        const data = await response.json();
+        return data;
+    }
+
     const sendMyInfoDatas = async (myInfoDatas, totalDiaries) => {
         const response = await fetch(`https://every-modular-rank-and.trycloudflare.com/api/recommendation`, {
             method: "POST",
@@ -55,7 +68,7 @@ const recommendService = (() => {
     };
 
 
-    return { getUserRecommendData : getUserRecommendData, sendMyInfoDatas: sendMyInfoDatas};
+    return { getUserRecommendData : getUserRecommendData, sendMyInfoDatas: sendMyInfoDatas, getDiary:getDiary};
 
 })();
 

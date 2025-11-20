@@ -1,11 +1,13 @@
 package com.example.crewstation.repository.ai;
 
 import com.example.crewstation.dto.ai.KeywordDTO;
+import com.example.crewstation.dto.member.MemberDTO;
 import com.example.crewstation.mapper.ai.KeywordMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor

@@ -2,13 +2,17 @@ package com.example.crewstation.controller.main;
 
 import com.example.crewstation.auth.CustomUserDetails;
 import com.example.crewstation.dto.ai.KeywordDTO;
+import com.example.crewstation.dto.diary.DiaryDetailDTO;
+import com.example.crewstation.dto.member.MemberDTO;
 import com.example.crewstation.service.ai.KeywordService;
+import com.example.crewstation.service.member.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -22,7 +26,15 @@ public class MainRestController {
     @GetMapping("/userdata")
     public ResponseEntity<List<KeywordDTO>> getUserKeywordData(@AuthenticationPrincipal CustomUserDetails user) {
         List<KeywordDTO> keywordDTO = keywordService.recommendSelect(user.getId());
+
         return ResponseEntity.ok(keywordDTO);
+    }
+
+    @GetMapping("/recommendDiary")
+    public ResponseEntity<List<DiaryDetailDTO>> getRecommendDiary(ArrayList<Long> diaryIds, @AuthenticationPrincipal CustomUserDetails customUserDetails) {
+        List<DiaryDetailDTO> diaryDetailDTOS = keywordService.recommendDiary(diaryIds ,customUserDetails);
+        return ResponseEntity.ok(diaryDetailDTOS);
+
     }
 
 
