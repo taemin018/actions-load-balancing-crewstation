@@ -252,31 +252,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         const result = await recommendService.sendMyInfoDatas(myInfoDatas, totalDiaries);
         console.log(result);
 
-        renderRecommendPosts(result.recommendPost);
 
     } catch (err) {
         console.error(err);
     }
 });
-
-
-function renderRecommendPosts(posts) {
-    const container = document.querySelector(".recommend-list");
-    if (!container) return;
-
-    container.innerHTML = "";
-
-    posts.forEach(post => {
-        const item = `
-            <div class="recommend-item">
-                <img src="${post.filePath || '/img/default.png'}" />
-                <h3>${post.postTitle}</h3>
-                <p>${post.postContent}</p>
-            </div>
-        `;
-        container.innerHTML += item;
-    });
-}
 
 
 
