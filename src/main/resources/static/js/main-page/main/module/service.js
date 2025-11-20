@@ -64,6 +64,7 @@ const recommendService = (() => {
             body: JSON.stringify(idsJson.totalDiaries)
 
 
+
         });
 
         if (!diaryResponse.ok) {
