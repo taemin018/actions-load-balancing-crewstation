@@ -36,7 +36,7 @@ const recommendService = (() => {
     };
 
     const sendMyInfoDatas = async (myInfoDatas, totalDiaries) => {
-        const response = await fetch(`https://brook-lovely-candy-wilderness.trycloudflare.com/api/recommendation`, {
+        const response = await fetch(`https://reaches-wallpaper-scores-island.trycloudflare.com/api/recommendation`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
