@@ -250,6 +250,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const totalDiaries = data;
 
         const result = await recommendService.sendMyInfoDatas(myInfoDatas, totalDiaries);
+        console.log("################")
         console.log(result);
 
 
