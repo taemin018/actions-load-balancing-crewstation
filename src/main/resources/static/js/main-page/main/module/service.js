@@ -52,8 +52,8 @@ const recommendService = (() => {
             throw new Error("요청 실패");
         }
 
-        const idsJson = await idsResponse.json();
-        console.log("idsJson.totalDiaries:", idsJson.totalDiaries);
+        const ids = await idsResponse.json();
+        console.log("ids.totalDiaries:", ids.totalDiaries);
 
         const diaryResponse = await fetch(`/api/recommendDiary`, {
             method: "POST",
@@ -61,7 +61,7 @@ const recommendService = (() => {
                 "Content-Type": "application/json",
             },
             credentials: 'include',
-            body: JSON.stringify(idsJson.totalDiaries)
+            body: JSON.stringify(ids.totalDiaries)
 
 
 
