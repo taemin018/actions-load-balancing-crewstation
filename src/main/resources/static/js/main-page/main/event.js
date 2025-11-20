@@ -252,10 +252,15 @@ document.addEventListener("DOMContentLoaded", async () => {
         const result = await recommendService.sendMyInfoDatas(myInfoDatas, totalDiaries);
         console.log(result);
 
+        renderRecommendPosts(result.recommendPost);
+
     } catch (err) {
         console.error(err);
     }
 });
+
+
+
 
 
 
