@@ -35,21 +35,9 @@ const recommendService = (() => {
         return data;
     };
 
-    const getDiary = async () => {
-        const response = await fetch(`/api/recommendDiary`, {
-            method: "GET"
-        });
-
-        if (!response.ok) {
-            throw new Error("다이어리 불러오기 실패");
-        }
-
-        const data = await response.json();
-        return data;
-    }
 
     const sendMyInfoDatas = async (myInfoDatas, totalDiaries) => {
-        const response = await fetch(`https://every-modular-rank-and.trycloudflare.com/api/recommendation`, {
+        const idsResponse = await fetch(`https://every-modular-rank-and.trycloudflare.com/api/recommendation`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -60,15 +48,30 @@ const recommendService = (() => {
             })
         });
 
-        if (!response.ok) {
+        if (!idsResponse.ok) {
+            throw new Error("요청 실패");
+        }
+        const idsJson = await idsResponse.json();
+
+        const diaryResponse = await fetch(`/api/recommendDiary`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                diaryIds: idsJson.diaryIds
+            })
+
+        });
+        if (!diaryResponse.ok) {
             throw new Error("요청 실패");
         }
 
-        return await response.json();
+        return await diaryResponse.json();
     };
 
 
-    return { getUserRecommendData : getUserRecommendData, sendMyInfoDatas: sendMyInfoDatas, getDiary:getDiary};
+    return { getUserRecommendData : getUserRecommendData, sendMyInfoDatas: sendMyInfoDatas};
 
 })();
 

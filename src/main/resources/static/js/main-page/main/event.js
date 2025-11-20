@@ -254,12 +254,59 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const result = await recommendService.sendMyInfoDatas(myInfoDatas, totalDiaries);
 
+        showRecommendList(result);
+
         console.log("################")
         console.log(result);
 
     } catch (err) {
         console.error(err);
     }
+});
+
+
+const showRecommendList = (diaryList) => {
+    const recommendList = document.querySelector("#recommendPostList");
+    console.log("recommendList");
+    recommendList.innerHTML = ""; // 초기화
+
+}
+showRecommendList(recommendService.diaryResponse())
+diaryList.forEach(diary => {
+    const diaryItem = document.createElement("div");
+    diaryItem.classList.add("card-feed-item-wrap");
+    diaryItem.innerHTML = `
+            <article class="card-collection-item">
+                <div class="card-writer">
+                    <div class="card-item-writer-content">
+                        <div class="card-item-writer-header">
+                            <a class="card-writer-link">
+                                <img class="card-writer-img" src="${diary.memberFilePath || diary.socialImgUrl || 'https://image.ohousecdn.com/i/bucketplace-v2-development/uploads/default_images/avatar.png?w=144&h=144&c=c'}" alt="writer">
+                                <div class="writer-info">
+                                    <span class="writer-name">${diary.memberName}</span>
+                                </div>
+                                <p class="card-item-writer-introduction">${diary.memberDescription || ""}</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-collection-item-content">
+                    <div class="card-collection-item-img">
+                        <div class="card-item-img">
+                            <img src="${diary.diaryFilePath}" alt="" class="image">
+                            <div class="diary-img-count">+${diary.fileCount || 0}</div>
+                            <a class="card-content-link" href="/diaries/detail/${diary.postId}"></a>
+                        </div>
+                    </div>
+                    <div class="card-item-description">
+                        <div class="card-item-description-content">
+                            <span class="card-item-detail-content">${diary.postContent}</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        `;
+    recommendList.appendChild(diaryItem);
 });
 
 
