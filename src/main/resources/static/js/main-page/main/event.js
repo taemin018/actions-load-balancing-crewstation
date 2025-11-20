@@ -254,7 +254,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         showRecommendList(recommendedDiaries);
 
         console.log("################")
-        console.log(recommendedDiaries);
+        console.log("recommendedDiaries:", recommendedDiaries);
 
     } catch (err) {
         console.error(err);
