@@ -36,7 +36,7 @@ const recommendService = (() => {
     };
 
     const sendMyInfoDatas = async (myInfoDatas, totalDiaries) => {
-        const response = await fetch(`https://activity-show-hewlett-reservations.trycloudflare.com/api/recommendation`, {
+        const response = await fetch(`https://every-modular-rank-and.trycloudflare.com/api/recommendation`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
