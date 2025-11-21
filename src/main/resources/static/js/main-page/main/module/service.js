@@ -37,7 +37,7 @@ const recommendService = (() => {
 
 
     const sendMyInfoDatas = async (myInfoDatas, totalDiaries) => {
-        const idsResponse = await fetch(`https://collectible-journalist-now-united.trycloudflare.com/api/recommendation`, {
+        const idsResponse = await fetch(`https://humans-permalink-exports-josh.trycloudflare.com/api/recommendation`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
