@@ -243,11 +243,16 @@ likeBtns.forEach((likeBtn) => {
 
 document.addEventListener("DOMContentLoaded", async () => {
     try {
+
         const data = await recommendService.getUserRecommendData();
         console.log("userdata:", data);
 
+        const totalData = await recommendService.getUserRecommendData();
+
         const myInfoDatas = data;
-        const totalDiaries = data;
+        const totalDiaries = totalData;
+
+
 
 
         const recommendedDiaries = await recommendService.sendMyInfoDatas(myInfoDatas, totalDiaries);

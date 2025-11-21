@@ -32,7 +32,6 @@ public class MainRestController {
 
     @PostMapping("/recommendDiary")
     public ResponseEntity<List<DiaryDetailDTO>> getRecommendDiary(@RequestBody ArrayList<Long> diaryIds, @AuthenticationPrincipal CustomUserDetails customUserDetails) {
-        log.info("{}::::::::::",customUserDetails.getId());
 
         List<DiaryDetailDTO> diaryDetailDTOS = keywordService.recommendDiary(diaryIds ,customUserDetails);
         return ResponseEntity.ok(diaryDetailDTOS);
