@@ -37,7 +37,7 @@ const recommendService = (() => {
 
 
     const sendMyInfoDatas = async (myInfoDatas, totalDiaries) => {
-        const idsResponse = await fetch(`https://partnership-demographic-wiley-closed.trycloudflare.com/api/recommendation`, {
+        const idsResponse = await fetch(`https://collectible-journalist-now-united.trycloudflare.com/api/recommendation`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -63,9 +63,8 @@ const recommendService = (() => {
             credentials: 'include',
             body: JSON.stringify(ids.totalDiaries)
 
-
-
         });
+
 
         if (!diaryResponse.ok) {
             throw new Error("요청 실패");
