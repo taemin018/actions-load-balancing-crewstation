@@ -248,9 +248,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.log("userdata:", data);
 
         const totalData = await recommendService.getUserRecommendData();
+        console.log("totalData:", totalData);
 
         const myInfoDatas = data;
         const totalDiaries = totalData;
+
 
 
 
