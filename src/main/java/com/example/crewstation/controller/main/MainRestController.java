@@ -25,7 +25,7 @@ public class MainRestController {
 
     @GetMapping("/userdata")
     public ResponseEntity<List<KeywordDTO>> getUserKeywordData(@AuthenticationPrincipal CustomUserDetails user) {
-        log.info("getUserKeywordData: {}", user);
+        log.info("getUserKeywordData");
         List<KeywordDTO> keywordDTO = keywordService.recommendSelect(user.getId());
 
         return ResponseEntity.ok(keywordDTO);

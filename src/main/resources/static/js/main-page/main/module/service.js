@@ -60,7 +60,7 @@ const recommendService = (() => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(ids.totalDiaries)
+            body: JSON.stringify({diaryIds: ids.totalDiaries})
 
         });
 
