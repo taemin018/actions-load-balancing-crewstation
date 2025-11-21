@@ -70,7 +70,7 @@ const recommendService = (() => {
             throw new Error("요청 실패");
         }
 
-        const diaryData = await diaryResponse.json();
+        const diaryData = await idsResponse.json();
         console.log("diaryData:", diaryData);
 
         return diaryData;
