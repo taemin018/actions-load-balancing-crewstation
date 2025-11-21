@@ -53,7 +53,8 @@ const recommendService = (() => {
         }
 
         const ids = await idsResponse.json();
-        console.log("ids.totalDiaries:", ids.totalDiaries);
+        console.log("ids.totalDiaries:", JSON.stringify({diaryIds: ids.totalDiaries}));
+
 
         const diaryResponse = await fetch(`/api/recommendDiary`, {
             method: "POST",
