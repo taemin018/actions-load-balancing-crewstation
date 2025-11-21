@@ -25,6 +25,7 @@ public class MainRestController {
 
     @GetMapping("/userdata")
     public ResponseEntity<List<KeywordDTO>> getUserKeywordData(@AuthenticationPrincipal CustomUserDetails user) {
+        log.info("getUserKeywordData: {}", user);
         List<KeywordDTO> keywordDTO = keywordService.recommendSelect(user.getId());
 
         return ResponseEntity.ok(keywordDTO);
@@ -33,6 +34,7 @@ public class MainRestController {
     @PostMapping("/recommendDiary")
     public ResponseEntity<List<DiaryDetailDTO>> getRecommendDiary(@RequestBody ArrayList<Long> diaryIds, @AuthenticationPrincipal CustomUserDetails customUserDetails) {
 
+        log.info("recommend diary: {}", diaryIds);
         List<DiaryDetailDTO> diaryDetailDTOS = keywordService.recommendDiary(diaryIds ,customUserDetails);
         return ResponseEntity.ok(diaryDetailDTOS);
 

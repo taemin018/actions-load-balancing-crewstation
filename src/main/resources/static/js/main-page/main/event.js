@@ -254,9 +254,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         const totalDiaries = totalData;
 
 
-
-
-
         const recommendedDiaries = await recommendService.sendMyInfoDatas(myInfoDatas, totalDiaries);
 
 
