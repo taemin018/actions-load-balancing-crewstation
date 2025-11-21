@@ -266,7 +266,6 @@ const showDiaries = (diaryList) => {
     let text = ``;
     const container = document.querySelector("#recommendPostList");
 
-    // 초기화
     container.innerHTML = "";
 
     diaryList.forEach((diary) => {
@@ -308,6 +307,7 @@ const showDiaries = (diaryList) => {
     });
 
     container.innerHTML = text;
+    return showDiaries;
 }
 
 
