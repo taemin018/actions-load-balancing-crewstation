@@ -30,6 +30,7 @@ public class KeywordServiceImpl implements KeywordService {
 
     @Override
     public List<DiaryDetailDTO> recommendDiary(ArrayList<Long> diaryIds, CustomUserDetails customUserDetails) {
+        log.info("recommend diary");
         ArrayList<DiaryDetailDTO> diaryDetailDTOs = new ArrayList<>();
         diaryIds.forEach(diaryId -> {
             diaryDetailDTOs.add(diaryService.getDiary(diaryId, customUserDetails));
