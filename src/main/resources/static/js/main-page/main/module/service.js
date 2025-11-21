@@ -54,7 +54,6 @@ const recommendService = (() => {
 
         const ids = await idsResponse.json();
         console.log("ids:", ids);
-        console.log(JSON.stringify(ids.recommendPost))
 
 
         const diaryResponse = await fetch(`/api/recommendDiary`, {
@@ -62,7 +61,7 @@ const recommendService = (() => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(ids.recommendPost)
+            body: JSON.stringify({diaryIds: ids.recommendPost})
 
         });
 
