@@ -53,7 +53,10 @@ const recommendService = (() => {
         }
 
         const ids = await idsResponse.json();
-        console.log("ids.totalDiaries:", ids);
+        console.log("ids:", ids);
+
+        const recommendedIds = ids.recommendPost;
+        console.log("추천된 diaryIds:", recommendedIds);
 
 
         const diaryResponse = await fetch(`/api/recommendDiary`, {
@@ -61,7 +64,7 @@ const recommendService = (() => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({diaryIds: ids.totalDiaries})
+            body: JSON.stringify(recommendedIds)
 
         });
 
