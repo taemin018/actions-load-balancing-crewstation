@@ -250,6 +250,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.log("totalDiaries:", totalData);
 
         const myInfoDatas = data.map(d => ({
+            postId: d.postId,
             memberId: d.memberId,
             searchWord: d.searchWord,
             postTitle: d.postTitle,
