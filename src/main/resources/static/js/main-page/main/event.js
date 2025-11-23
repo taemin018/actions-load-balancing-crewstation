@@ -265,6 +265,12 @@ document.addEventListener("DOMContentLoaded", async () => {
             postContent: d.postContent
         }));
 
+        const payload = {
+            myInfoDatas: myInfoDatas,
+            totalDiaries: totalDiaries
+        };
+        console.log("🚀 서버로 보내는 JSON:", JSON.stringify(payload, null, 2));
+
         const recommendedDiaries = await recommendService.sendMyInfoDatas(myInfoDatas, totalDiaries);
 
         console.log("################");
