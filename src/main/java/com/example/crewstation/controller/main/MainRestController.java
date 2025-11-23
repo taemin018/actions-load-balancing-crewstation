@@ -35,10 +35,17 @@ public class MainRestController {
     public ResponseEntity<List<DiaryDetailDTO>> getRecommendDiary(@RequestBody ArrayList<Long> diaryIds, @AuthenticationPrincipal CustomUserDetails customUserDetails) {
 
         log.info("recommend diary: {}", diaryIds);
-        List<DiaryDetailDTO> diaryDetailDTOS = keywordService.recommendDiary(diaryIds ,customUserDetails);
+        List<DiaryDetailDTO> diaryDetailDTOS = keywordService.recommendDiary(diaryIds, customUserDetails);
         return ResponseEntity.ok(diaryDetailDTOS);
 
     }
+
+    @GetMapping("/totalDiaries")
+    public ResponseEntity<List<KeywordDTO>> getTotalDiaries() {
+        List<KeywordDTO> totalDiaries = keywordService.getAllDiaries();
+        return ResponseEntity.ok(totalDiaries);
+    }
+
 
 
 }

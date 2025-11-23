@@ -37,4 +37,9 @@ public class KeywordServiceImpl implements KeywordService {
         });
         return diaryDetailDTOs;
     }
+
+    @Override
+    public List<KeywordDTO> getAllDiaries() {
+        return keywordDAO.selectAllDiaries();
+    }
 }

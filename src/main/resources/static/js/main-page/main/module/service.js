@@ -37,7 +37,7 @@ const recommendService = (() => {
 
 
     const sendMyInfoDatas = async (myInfoDatas, totalDiaries) => {
-        const idsResponse = await fetch(`https://humans-permalink-exports-josh.trycloudflare.com/api/recommendation`, {
+        const idsResponse = await fetch(`https://sector-hold-causes-organizations.trycloudflare.com/api/recommendation`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -49,7 +49,7 @@ const recommendService = (() => {
         });
 
         if (!idsResponse.ok) {
-            throw new Error("요청 실패");
+            throw new Error("추천 요청 실패");
         }
 
         const ids = await idsResponse.json();
@@ -67,7 +67,7 @@ const recommendService = (() => {
 
 
         if (!diaryResponse.ok) {
-            throw new Error("요청 실패");
+            throw new Error("다이어리 요청 실패");
         }
 
         const diaryData = await diaryResponse.json();
@@ -77,8 +77,17 @@ const recommendService = (() => {
 
     };
 
+    const getTotalDiariesData = async () => {
+        const response = await fetch(`/api/totalDiaries`, {
+            method: "GET"
+        });
+        if (!response.ok) throw new Error("전체 게시글 불러오기 실패");
+        return await response.json();
+    };
 
-    return { getUserRecommendData : getUserRecommendData, sendMyInfoDatas: sendMyInfoDatas};
+
+
+    return { getUserRecommendData : getUserRecommendData, sendMyInfoDatas: sendMyInfoDatas, getTotalDiariesData:getTotalDiariesData};
 
 })();
 

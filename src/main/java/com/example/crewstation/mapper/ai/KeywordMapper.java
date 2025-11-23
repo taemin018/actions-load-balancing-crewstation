@@ -18,4 +18,6 @@ public interface KeywordMapper {
 
     public List<KeywordDTO> selectKeyword(Long memberId);
 
+    public  List<KeywordDTO> selectAllDiaries();
+
 }

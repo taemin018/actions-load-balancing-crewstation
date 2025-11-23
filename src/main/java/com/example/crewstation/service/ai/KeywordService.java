@@ -13,4 +13,6 @@ public interface KeywordService {
     public List<KeywordDTO> recommendSelect(Long memberId);
 
     public List<DiaryDetailDTO> recommendDiary(ArrayList<Long> diaryIds, CustomUserDetails customUserDetails);
+
+    public List<KeywordDTO> getAllDiaries();
 }

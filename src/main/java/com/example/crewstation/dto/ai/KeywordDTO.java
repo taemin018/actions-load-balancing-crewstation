@@ -8,6 +8,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class KeywordDTO {
+    private Long postId;
     private Long memberId;
     private String searchWord;
     private String postContent;

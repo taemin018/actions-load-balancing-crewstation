@@ -27,4 +27,9 @@ public class KeywordDAO {
         return keywordMapper.selectKeyword(memberId);
     }
 
+    public List<KeywordDTO> selectAllDiaries() {
+        return keywordMapper.selectAllDiaries();
+    }
+
+
 }
