@@ -246,10 +246,24 @@ document.addEventListener("DOMContentLoaded", async () => {
         const data = await recommendService.getUserRecommendData();
         console.log("userdata:", data);
 
-        const totalDiaries = await recommendService.getTotalDiariesData();
-        console.log("totalDiaries:", totalDiaries);
+        const totalData = await recommendService.getTotalDiariesData();
+        console.log("totalDiaries:", totalData);
 
-        const myInfoDatas = data;
+        const myInfoDatas = data.map(d => ({
+            memberId: d.memberId,
+            searchWord: d.searchWord,
+            postTitle: d.postTitle,
+            postContent: d.postContent
+        }));
+
+        const totalDiaries = totalData.map(d => ({
+            postId: d.postId,
+            memberId: d.memberId,
+            searchWord: d.searchWord,
+            postTitle: d.postTitle,
+            postContent: d.postContent
+        }));
+
         const recommendedDiaries = await recommendService.sendMyInfoDatas(myInfoDatas, totalDiaries);
 
         console.log("################");
