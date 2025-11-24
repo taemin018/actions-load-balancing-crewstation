@@ -63,8 +63,8 @@ const recommendService = (() => {
             headers: {
                 "Content-Type": "application/json",
             },
+            credentials: 'include',
             body: JSON.stringify(ids.recommendPost)
-            credentials: 'include'
 
         });
 
