@@ -42,6 +42,7 @@ public class MainRestController {
 
     @GetMapping("/totalDiaries")
     public ResponseEntity<List<KeywordDTO>> getTotalDiaries() {
+        log.info("getTotalDiaries");
         List<KeywordDTO> totalDiaries = keywordService.getAllDiaries();
         return ResponseEntity.ok(totalDiaries);
     }
