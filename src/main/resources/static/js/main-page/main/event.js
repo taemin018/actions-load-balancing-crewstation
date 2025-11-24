@@ -252,7 +252,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const myInfoDatas = data.map(d => ({
             postId: d.postId,
             memberId: d.memberId,
-            searchWord: d.searchWord,
+            searchWord: info.searchWord ?? "",
             postTitle: d.postTitle,
             postContent: d.postContent
         }));
@@ -260,7 +260,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const totalDiaries = totalData.map(d => ({
             postId: d.postId,
             memberId: d.memberId,
-            searchWord: d.searchWord,
+            searchWord: info.searchWord ?? "",
             postTitle: d.postTitle,
             postContent: d.postContent
         }));
