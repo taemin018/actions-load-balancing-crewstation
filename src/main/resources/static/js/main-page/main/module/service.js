@@ -82,7 +82,11 @@ const recommendService = (() => {
             method: "GET"
         });
         if (!response.ok) throw new Error("전체 게시글 불러오기 실패");
-        return await response.json();
+
+        totalDiaryData = await response.json();
+        console.log("totalDiaryData: ", totalDiaryData);
+
+        return totalDiaryData
     };
 
 
