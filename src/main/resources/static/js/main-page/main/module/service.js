@@ -84,7 +84,7 @@ const recommendService = (() => {
         if (!response.ok) throw new Error("전체 게시글 불러오기 실패");
 
         totalDiaryData = await response.json();
-        console.log("totalDiaryData: ", totalDiaryData);
+        console.log("전체 다이어리: ", totalDiaryData);
 
         return totalDiaryData
     };
